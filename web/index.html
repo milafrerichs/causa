@@ -16,7 +16,7 @@
 <body ng-app="causa">
   <div ng-controller="DebatesController">
     <ul>
-      <li ng-repeat="thesis in theses track by $index">{{thesis.text}}, {{thesis.article.headline}}</li>
+      <li ng-repeat="thesis in theses track by $index">{{thesis.text}}, {{thesis.article.headline}}, {{thesis.getVoteCount()}}, {{thesis.getPositiveVoteCount()}}</li>
     </ul>
   </div>
   <script src="node_modules/angular/angular.min.js"></script>
@@ -24,6 +24,7 @@
   <script src="js/causa/causa.js"></script>
   <script src="js/causa/theses/theses.js"></script>
   <script src="js/causa/articles/article.js"></script>
+  <script src="js/causa/votes/vote.js"></script>
   <script src="js/causa/debates/debatesController.js"></script>
 </body>
 </html>
