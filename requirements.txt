@@ -1,5 +1,7 @@
+scipy
 numpy
 pandas
 scikit-learn
 jupyter
 plotly
+toolz
