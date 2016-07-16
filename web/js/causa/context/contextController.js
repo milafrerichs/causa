@@ -1,5 +1,4 @@
 angular.module('causa').controller('ContextController', ['thesis', 'article', 'vote', '$scope', '$http', function(thesis, article, vote, $scope, $http) {
-  $scope.test = 'Test';
   $scope.debates = [];
   $scope.theses = [];
   $scope.articles = [];
@@ -26,4 +25,10 @@ angular.module('causa').controller('ContextController', ['thesis', 'article', 'v
       $scope.theses.push(new thesis(key, data, articles[0], votes));
     });
   });
+  $scope.currentArticle = $scope.articles[9];
+  $scope.sortByArticleDate = function(results) {
+    return results.sort(function(a,b) {
+      return a.article.date - b.article.date;
+    });
+  };
 }]);

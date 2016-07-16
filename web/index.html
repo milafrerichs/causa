@@ -16,7 +16,7 @@
 <body ng-app="causa">
   <div ng-controller="ContextController">
     <ul>
-      <li ng-repeat="thesis in theses track by $index">{{thesis.text}}, {{thesis.article.headline}}, {{thesis.getVoteCount()}}, {{thesis.getPositiveVoteCount()}}</li>
+      <li ng-repeat="thesis in theses | orderBy: sortyByArticleDate">{{thesis.text}}, {{thesis.article.headline}}, {{thesis.getVoteCount()}}, {{thesis.getPositiveVoteCount()}}</li>
     </ul>
   </div>
   <script src="node_modules/angular/angular.min.js"></script>
