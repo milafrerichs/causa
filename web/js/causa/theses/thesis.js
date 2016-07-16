@@ -13,6 +13,9 @@ angular.module('causa').factory('thesis', function() {
     this.getNegativeVoteCount = function() {
       return this.votes.filter(function(vote) { return vote.vote == "-1";}).length;
     };
+    this.getNeutralVoteCount = function() {
+      return this.votes.filter(function(vote) { return vote.vote == "0";}).length;
+    };
   }
   return Theses;
 });
