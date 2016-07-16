@@ -1,0 +1,1 @@
+causa = angular.module('causa', []);

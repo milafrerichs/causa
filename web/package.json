@@ -1,0 +1,16 @@
+{
+  "name": "causa",
+  "version": "0.0.1",
+  "description": "Causa Tagesspiegel Viz",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Mila Frerichs",
+  "license": "MIT",
+  "devDependencies": {
+    "angular": "^1.5.7",
+    "d3": "^4.1.1",
+    "lodash": "^4.13.1"
+  }
+}
