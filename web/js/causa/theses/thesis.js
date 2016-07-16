@@ -1,4 +1,4 @@
-angular.module('causa').factory('theses', function() {
+angular.module('causa').factory('thesis', function() {
   function Theses(key, json, article, votes) {
     this.id = key;
     this.text = json.text;

@@ -1,5 +1,4 @@
-//ContextController
-angular.module('causa').controller('DebatesController', ['theses', 'article', 'vote', '$scope', '$http', function(theses, article, vote, $scope, $http) {
+angular.module('causa').controller('ContextController', ['thesis', 'article', 'vote', '$scope', '$http', function(thesis, article, vote, $scope, $http) {
   $scope.test = 'Test';
   $scope.debates = [];
   $scope.theses = [];
@@ -24,7 +23,7 @@ angular.module('causa').controller('DebatesController', ['theses', 'article', 'v
       var votes = $scope.votes.filter(function(vote) {
         return key === vote.thesis_id;
       });
-      $scope.theses.push(new theses(key, data, articles[0], votes));
+      $scope.theses.push(new thesis(key, data, articles[0], votes));
     });
   });
 }]);
