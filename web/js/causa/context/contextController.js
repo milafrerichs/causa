@@ -19,7 +19,7 @@ angular.module('causa').controller('ContextController', ['thesis', 'article', 'v
   $http.get('/data/dist_dict.json').then(function(result) {
     $scope.distances = result.data;
   });
-  $http.get('/data/first-debate.json').then(function(results) {
+  $http.get('/data/die-deutsche-russlandpolitik.json').then(function(results) {
     $scope.debate = results.data.debates;
     angular.forEach(results.data.votes, function(data, key) {
       $scope.votes.push(new vote(key, data));

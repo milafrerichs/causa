@@ -15,11 +15,11 @@ angular.module('causa').directive('thesesDirective', ['thesis', function(thesis)
           var thesisDimensions = $element.find('ul .thesis').map(function() { return _.extend($(this).offset(), { width: $(this).width(), height: $(this).height()}); }).get();
           var dimensionsLookup = {};
           var indexLookup = {};
-          var thesisAuhtorLookup = {};
+          var thesisAuthorLookup = {};
           $scope.theses.forEach(function(thesis, index) {
             dimensionsLookup[thesis.id] = thesisDimensions[index];
             indexLookup[thesis.id] = index;
-            thesisAuhtorLookup[thesis.id] = thesis.author_id;
+            thesisAuthorLookup[thesis.id] = thesis.author_id;
           });
           var arcData = [];
           var arcDone = {};
@@ -29,7 +29,7 @@ angular.module('causa').directive('thesesDirective', ['thesis', function(thesis)
             _.forOwn(thesisDistances, function(distance, to) {
               if(distance < distanceTreshold && from !== to && !arcDone[to+from]) {
                 arcDone[from+to] = true;
-                arcData.push({from: from, to: to, distance: distance, indexDifference: Math.abs(indexLookup[from]-indexLookup[to]), author: thesisAuhtorLookup[from], sameAuthor: (thesisAuhtorLookup[from] == thesisAuhtorLookup[to])});
+                arcData.push({from: from, to: to, distance: distance, indexDifference: Math.abs(indexLookup[from]-indexLookup[to]), author: thesisAuthorLookup[from], sameAuthor: (thesisAuthorLookup[from] == thesisAuthorLookup[to])});
               }
             });
           });
