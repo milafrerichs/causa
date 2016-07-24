@@ -15,15 +15,61 @@
 
 <body ng-app="causa">
   <div ng-controller="ContextController">
-    <ul>
-      <li ng-repeat="thesis in theses |orderBy: sortyByArticleDate"><thesis-directive thesis="thesis" active-article="currentArticle"></thesis-directive></li>
-    </ul>
+    <theses-directive distances="distances" authors-lookup="authorsLookup" theses="theses"></theses-directive>
   </div>
+  <script type="text/ng-template" id="/theses.html">
+    <div class="context-area">
+      <ul class="theses">
+        <li ng-repeat="thesis in theses"><thesis-directive distances="distances" thesis="thesis" authors-lookup="authorsLookup" active-article="currentArticle"></thesis-directive></li>
+      </ul>
+      <svg class="drawing-canvas"></svg>
+    </div>
+  </script>
+  <script type="text/ng-template" id="/thesis.html">
+    <div class="thesis" ng-class="{active: isActive}">
+      {{thesis.id}}
+      <br/>
+      {{distances['39926eec0868833d6729637c229419c5'][thesis.id]}}
+      <p>{{text}}</p>
+      {{articleHeadline}}
+      <br/>
+      Author: {{authorsLookup[thesis.author_id].name}}
+      <br/>p: {{positiveVoteCount}}
+      Posirtive votes:
+      <li ng-repeat="vote in thesis.getPositiveVotes() ">
+        {{authorsLookup[vote.author_id].name}}
+      </li>
+      Negative votes:
+      <li ng-repeat="vote in thesis.getNegativeVotes() ">
+        {{authorsLookup[vote.author_id].name}}
+      </li>
+      Neutral votes:
+      <li ng-repeat="vote in thesis.getNeutralVotes() ">
+        {{authorsLookup[vote.author_id].name}}
+      </li>
+    </div>
+  </script>
+  <script src="node_modules/jquery/dist/jquery.min.js"></script>
   <script src="node_modules/angular/angular.min.js"></script>
+  <script src="https://d3js.org/d3-array.v1.min.js"></script>
+  <script src="https://d3js.org/d3-collection.v1.min.js"></script>
+  <script src="https://d3js.org/d3-color.v1.min.js"></script>
+  <script src="https://d3js.org/d3-format.v1.min.js"></script>
+  <script src="https://d3js.org/d3-interpolate.v1.min.js"></script>
+  <script src="https://d3js.org/d3-time.v1.min.js"></script>
+  <script src="https://d3js.org/d3-time-format.v2.min.js"></script>
+  <script src="node_modules/d3-path/build/d3-path.min.js"></script>
+  <script src="node_modules/d3-shape/build/d3-shape.min.js"></script>
+  <script src="node_modules/d3-array/build/d3-array.min.js"></script>
+  <script src="node_modules/d3-scale/build/d3-scale.min.js"></script>
+  <script src="node_modules/d3-selection/build/d3-selection.min.js"></script>
+  <script src="node_modules/lodash/lodash.min.js"></script>
   <script src="js/index.js"></script>
   <script src="js/causa/causa.js"></script>
   <script src="js/causa/theses/thesis.js"></script>
+  <script src="js/causa/theses/thesesDirective.js"></script>
   <script src="js/causa/theses/thesisDirective.js"></script>
+  <script src="js/causa/author/author.js"></script>
   <script src="js/causa/articles/article.js"></script>
   <script src="js/causa/votes/vote.js"></script>
   <script src="js/causa/context/contextController.js"></script>
