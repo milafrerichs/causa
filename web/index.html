@@ -34,19 +34,15 @@
       {{articleHeadline}}
       <br/>
       Author: {{authorsLookup[thesis.author_id].name}}
-      <br/>p: {{positiveVoteCount}}
-      Posirtive votes:
-      <li ng-repeat="vote in thesis.getPositiveVotes() ">
-        {{authorsLookup[vote.author_id].name}}
-      </li>
-      Negative votes:
-      <li ng-repeat="vote in thesis.getNegativeVotes() ">
-        {{authorsLookup[vote.author_id].name}}
-      </li>
-      Neutral votes:
-      <li ng-repeat="vote in thesis.getNeutralVotes() ">
-        {{authorsLookup[vote.author_id].name}}
-      </li>
+
+      <div class="thesis--votes">
+        <h3 ng-show="positiveVoteCount > 0">{{positiveVoteCount}} + votes:</h3>
+        <ul><li ng-repeat="vote in thesis.getPositiveVotes() ">{{authorsLookup[vote.author_id].name}}</li></ul>
+        <h3 ng-show="neutralVoteCount > 0">{{neutralVoteCount}} ¯\_(ツ)_/¯ votes:</h3>
+        <ul><li ng-repeat="vote in thesis.getNegativeVotes() ">{{authorsLookup[vote.author_id].name}}</li></ul>
+        <h3 ng-show="negativeVoteCount > 0">{{negativeVoteCount}} - votes:</h3>
+        <ul><li ng-repeat="vote in thesis.getNeutralVotes() ">{{authorsLookup[vote.author_id].name}}</li></ul>
+      </div> <!-- /#thesis--votes -->
     </div>
   </script>
   <script src="node_modules/jquery/dist/jquery.min.js"></script>

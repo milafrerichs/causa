@@ -14,6 +14,8 @@ angular.module('causa').directive('thesisDirective', ['thesis', function(thesis)
       scope.text = scope.thesis.text;
       scope.articleHeadline = scope.thesis.article.headline;
       scope.positiveVoteCount = scope.thesis.getPositiveVoteCount();
+      scope.negativeVoteCount = scope.thesis.getNeutralVoteCount();
+      scope.neutralVoteCount = scope.thesis.getNegativeVoteCount();
       scope.$watch('activeArticle', function(article) {
         scope.isActive = scope.thesis.article == scope.activeArticle;
       });

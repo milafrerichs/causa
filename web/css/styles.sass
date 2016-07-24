@@ -28,3 +28,11 @@
       .active
         background: #ff0
 
+  .thesis--votes
+    h3, ul, li
+      display: inline
+    li::after
+      content: ', '
+    li:last-child
+      &::after
+        content: ''
