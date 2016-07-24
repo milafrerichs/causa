@@ -14,16 +14,18 @@
 </head>
 
 <body ng-app="causa">
-  <div ng-controller="DebatesController">
+  <div ng-controller="ContextController">
     <ul>
-      <li ng-repeat="thesis in theses track by $index">{{thesis.text}}, {{thesis.article.headline}}</li>
+      <li ng-repeat="thesis in theses |orderBy: sortyByArticleDate"><thesis-directive thesis="thesis" active-article="currentArticle"></thesis-directive></li>
     </ul>
   </div>
   <script src="node_modules/angular/angular.min.js"></script>
   <script src="js/index.js"></script>
   <script src="js/causa/causa.js"></script>
-  <script src="js/causa/theses/theses.js"></script>
+  <script src="js/causa/theses/thesis.js"></script>
+  <script src="js/causa/theses/thesisDirective.js"></script>
   <script src="js/causa/articles/article.js"></script>
-  <script src="js/causa/debates/debatesController.js"></script>
+  <script src="js/causa/votes/vote.js"></script>
+  <script src="js/causa/context/contextController.js"></script>
 </body>
 </html>
